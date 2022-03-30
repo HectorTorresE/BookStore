@@ -2,7 +2,6 @@ const ADD = 'book-store/books/ADD ';
 const REMOVE = 'book-store/books/REMOVE';
 const INITIAL_STATE = [];
 
-
 export const add = (book) => ({
   type: ADD,
   obj: book,
