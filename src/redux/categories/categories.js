@@ -9,7 +9,7 @@ export const checkStatus = (id) => ({
 const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case STATUS:
-      return { status: 'Pending' };
+      return { status: 'Under construction' };
     default: return state;
   }
 };
