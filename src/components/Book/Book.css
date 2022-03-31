@@ -1,9 +1,11 @@
-
 .book {
   border: 1px darkgray solid;
   border-radius: 8px;
   width: 80%;
   padding: 10px;
+  background-color: white;
+  margin: 10px 0;
+  height: 150px;
 }
 
 .book ul li {
@@ -15,8 +17,18 @@
   background-color: inherit;
   border: none;
   cursor: pointer;
+  color: #4386bf;
 }
 
 .book button:hover {
-  color: cornflowerblue;
+  color: black;
+}
+
+
+.title {
+  margin-block: 5px;
+}
+
+.author {
+  margin-block: 5px;
 }

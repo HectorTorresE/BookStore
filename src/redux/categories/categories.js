@@ -1,5 +1,7 @@
 const STATUS = 'book-store//categories/STATUS';
-const INITIAL_STATE = [];
+const INITIAL_STATE = {
+  status: 'Under construction',
+};
 
 export const checkStatus = (id) => ({
   type: STATUS,
