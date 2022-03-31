@@ -1,6 +1,20 @@
 const ADD = 'book-store/books/ADD ';
 const REMOVE = 'book-store/books/REMOVE';
-const INITIAL_STATE = [];
+
+const INITIAL_STATE = {
+  books: [
+    {
+      id: '1',
+      author: 'Gayle Laakmann McDowell',
+      title: 'Cracking the Coding Interview',
+    },
+    {
+      id: '2',
+      author: 'Robert Greene',
+      title: 'The 48 Laws of Power',
+    },
+  ],
+};
 
 export const add = (book) => ({
   type: ADD,
@@ -13,22 +27,24 @@ export const remove = (id) => ({
 });
 
 const reducer = (state = INITIAL_STATE, action) => {
-  if (action.type === ADD) {
-    return {
-      books: [
-        ...state.books,
-        {
-          id: action.obj.id,
-          title: action.obj.title,
-          author: action.obj.author,
-        },
-      ],
-    };
+  switch (action.type) {
+    case ADD:
+      return {
+        books: [
+          ...state.books,
+          {
+            id: action.obj.id,
+            title: action.obj.title,
+            author: action.obj.author,
+          },
+        ],
+      };
+    case REMOVE:
+      return {
+        books: state.books.filter((book) => (book.id !== action.obj.id)),
+      };
+    default: return state;
   }
-  if (action.type === REMOVE) {
-    return state.filter((item) => item.id !== action.obj);
-  }
-  return state;
 };
 
 export default reducer;

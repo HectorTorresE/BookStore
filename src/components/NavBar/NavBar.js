@@ -18,7 +18,7 @@ const links = [
 const NavBar = () => (
   <nav className="NavBar">
     <div className="left">
-      <h1>Awsome Bookstore</h1>
+      <h1>Bookstore CMS</h1>
       <div>
         {links.map((link) => (
           <NavLink
