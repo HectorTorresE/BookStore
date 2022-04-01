@@ -1,19 +1,19 @@
-const STATUS = 'book-store//categories/STATUS';
+const STATUS = 'bookstore/categories/STATUS';
 const INITIAL_STATE = {
   status: 'Under construction',
 };
 
-export const checkStatus = (id) => ({
-  type: STATUS,
-  obj: id,
-});
+export function checkStatus(id) {
+  return {
+    type: STATUS,
+    payload: id,
+  };
+}
 
-const reducer = (state = INITIAL_STATE, action) => {
+export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case STATUS:
       return { status: 'Under construction' };
     default: return state;
   }
-};
-
-export default reducer;
+}
