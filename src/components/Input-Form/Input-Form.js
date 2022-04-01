@@ -7,35 +7,45 @@ import './Input-Form.css';
 const InputForm = () => {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
+  const [genre, setGenre] = useState('Action');
   const dispatch = useDispatch();
-
-  const addBook = (e) => {
+  const addNewBook = (e) => {
     e.preventDefault();
     if (author === '' || title === '') return;
-    dispatch(add({ id: uuidv4(), title, author }));
+    dispatch(add(
+      {
+        id: uuidv4(), title, author, genre,
+      },
+    ));
     setTitle();
     setAuthor();
   };
-
   const onChange = (e) => {
     if (e.target.id === 'title') setTitle(e.target.value);
     else setAuthor(e.target.value);
   };
-
   return (
     <form className="input-form">
-      <label htmlFor="title">
-        <input type="text" name="title" id="title" required placeholder="Book title" value={title || ''} onChange={onChange} />
-      </label>
-      <label htmlFor="author">
-        <input type="text" name="author" id="author" required placeholder="Author" value={author || ''} onChange={onChange} />
-      </label>
+      <input type="text" name="title" id="title" required placeholder="Book title" value={title || ''} onChange={onChange} />
+      <input type="text" name="author" id="author" required placeholder="Author" value={author || ''} onChange={onChange} />
+      <select name="select" value={genre} onChange={(e) => setGenre(e.target.value)}>
+        <option value="Action" selected>Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Drama">Drama</option>
+        <option value="Educational">Educational</option>
+        <option value="Horror">Horror</option>
+        <option value="Fiction">Fiction</option>
+        <option value="History">History</option>
+        <option value="Romance">Romance</option>
+      </select>
       <button
         aria-label="submit"
         type="submit"
         name="submit"
         id="submit"
-        onClick={addBook}
+        onClick={addNewBook}
       >
         ADD BOOK
       </button>
